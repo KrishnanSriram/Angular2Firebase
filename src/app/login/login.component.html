@@ -3,20 +3,25 @@
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col col-sm-4 center-block" style="box-shadow: 10px 10px 5px;background-color:lightgray">
+                <div class="text-danger" *ngIf="errorMessage">
+                    <h4>{{errorMessage}}</h4>
+                </div>
                 <div style="margin: 20px"></div>
                 <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                 <img id="profile-img" class="profile-img-card center-block"
                      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
                 <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin">
+
+                <form class="form-signin" [formGroup]="loginForm">
                     <span id="reauth-email" class="reauth-email"></span>
                     <fieldset>
                         <section class="form-group">
                             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
-                                   autofocus>
+                                   autofocus formControlName="email">
                         </section>
                         <section class="form-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                   required formControlName="password">
                             <div id="remember" class="checkbox">
                                 <label>
                                     <input type="checkbox" value="remember-me"> Remember me
@@ -24,7 +29,7 @@
                             </div>
                         </section>
                         <section>
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="button" (click)="onLogin()">Sign in</button>
                         </section>
 
                     </fieldset>

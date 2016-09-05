@@ -10,12 +10,14 @@ import {NavbarComponent} from "./shared/navbar/navbar.component";
 import {LoginComponent} from "./login/login.component";
 import {LoginModule} from "./login/login.module";
 import {RegisterModule} from "./register/register.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import {AuthService} from "./services/auth.service";
 
 @NgModule({
-    imports: [BrowserModule, routing, HomeModule, LoginModule, RegisterModule],
+    imports: [BrowserModule, routing, ReactiveFormsModule, LoginModule, RegisterModule, HomeModule],
     declarations: [AppComponent, NavbarComponent],
     exports: [NavbarComponent],
-    providers: [{
+    providers: [AuthService, {
         provide: APP_BASE_HREF,
         useValue: '/'
     }],

@@ -8,29 +8,36 @@
                 <img id="profile-img" class="profile-img-card center-block"
                      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
                 <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin">
+                <form class="form-signin" [formGroup] = "registerForm">
                     <span id="reauth-email" class="reauth-email"></span>
                     <fieldset>
                         <section class="form-group">
-                            <input type="email" id="firstName" class="form-control" placeholder="First Name" required
-                                   autofocus>
+                            <input type="text" id="firstName" class="form-control" placeholder="First Name" required
+                                   autofocus formControlName="firstName">
                         </section>
                         <section class="form-group">
-                            <input type="email" id="lastName" class="form-control" placeholder="Last Name" required
-                                   autofocus>
+                            <input type="text" id="lastName" class="form-control" placeholder="Last Name" required
+                                   autofocus formControlName="lastName">
+                        </section>
+                        <section class="form-group">
+                            <input type="text" id="lastName" class="form-control" placeholder="Display Name" required
+                                   autofocus formControlName="displayName">
                         </section>
                         <section class="form-group">
                             <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required
-                                   autofocus>
+                                   autofocus formControlName="email">
                         </section>
                         <section class="form-group">
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                                   required formControlName="password">
                         </section>
                         <section class="form-group">
-                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required>
+                            <input type="password" id="confirmPassword" class="form-control"
+                                   placeholder="Confirm Password" required formControlName="confirmPassword">
                         </section>
                         <section>
-                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Register</button>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="button"
+                                    (click)="onRegister()">Register</button>
                         </section>
 
                     </fieldset>

@@ -4,7 +4,7 @@ export const routing = RouterModule.forRoot([
     {
         path: '',
         pathMatch: 'full',
-        loadChildren: 'app/home/home.module#HomeModule'
+        loadChildren: 'app/login/login.module#LoginModule'
     },
     {
         path: 'home',
